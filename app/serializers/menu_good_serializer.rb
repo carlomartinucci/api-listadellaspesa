@@ -13,7 +13,11 @@
 
 class MenuGoodSerializer
   include FastJsonapi::ObjectSerializer
-  belongs_to :good
+  # belongs_to :good
   belongs_to :menu
   attributes :quantity, :course
+
+  attribute :name do |obj|
+    obj.good.name
+  end
 end

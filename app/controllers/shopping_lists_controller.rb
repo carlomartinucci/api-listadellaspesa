@@ -42,12 +42,12 @@ class ShoppingListsController < ApplicationController
         if found
           found[:quantity] += menu_good.quantity || 0
           items
-        elsif menu_good.quantity.to_i > 0
+        else
+          # elsif menu_good.quantity.to_i > 0
           items << {
             name: menu_good.good.name,
             quantity: menu_good.quantity || 0
           }
-        else
           items
         end
       end
